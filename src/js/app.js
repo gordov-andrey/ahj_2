@@ -1,11 +1,29 @@
-// TODO: write code here
+import img from '../img/goblin.png';
 
-// comment this to pass build
-// const unusedVariable = 'variable';
+export function demo() {
+  const icon = `<img src="${img}" alt="Catch!" id="img">`;
+  const fields = document.querySelectorAll('.col');
+  const arr = [];
+  
+  function getRandom(max) {
+    let randomA = Math.floor(Math.random() * max);
+    
+    while (randomA === arr[0]) {
+      randomA = Math.floor(Math.random() * max);
+    }
+    arr[0] = randomA;
+    return randomA;
+  }
 
-// for demonstration purpose only
-export default function demo(value) {
-  return value;
+  const random = getRandom(fields.length);
+
+  fields.forEach((item) => {
+    const img = item.querySelector('#img');
+    if (img) {
+      img.remove();
+    }
+  });
+  fields[random].insertAdjacentHTML('beforeend', icon);
 }
-
-// console.log('app.js included');
+const interval = setInterval(() => demo(), 1000);
+export default interval;
