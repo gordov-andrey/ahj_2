@@ -1,6 +1,6 @@
 import img from '../img/goblin.png';
 
-export function demo() {
+export default function demo() {
   const icon = `<img src="${img}" alt="Catch!" id="img">`;
   const fields = document.querySelectorAll('.col');
   const arr = [];
@@ -25,5 +25,5 @@ export function demo() {
   });
   fields[random].insertAdjacentHTML('beforeend', icon);
 }
-const interval = setInterval(() => demo(), 1000);
-export default interval;
+export const interval = setInterval(() => demo(), 1000);
+
